@@ -1,0 +1,29 @@
+// display 布局
+$flex-type: (flex, block, inline, inline-block, inline-flex);
+@each $name in $flex-type{
+  .d-#{$name}{
+    display: #{$name};
+  }
+}
+
+// justify-content 属性
+$jc-type: (center, flex-end, flex-start, space-between);
+@each $name in $jc-type{
+  .jc-#{$name}{
+    justify-content: #{$name};
+  }
+}
+
+// align-items 属性
+$ai-type: (center, flex-end, flex-start, space-between);
+@each $name in $jc-type{
+  .ai-#{$name}{
+    align-items: #{$name};
+  }
+}
+
+.flex-center{
+  @extend .d-flex;
+  @extend .ai-center;
+  @extend .jc-center;
+}

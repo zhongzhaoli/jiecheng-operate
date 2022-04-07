@@ -1,0 +1,36 @@
+<!--
+ * @Author: Custer
+ * @Date: 2021-10-29 14:23:48
+ * @LastEditors: Custer
+ * @LastEditTime: 2021-12-06 14:45:01
+ * @Description: file content
+-->
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+    <link href="<%= BASE_URL %>static/css/loading.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <noscript>
+    </noscript>
+    <div id="app">
+      <div class="first-loading-wrp">
+        <div class="loading-wrp">
+          <span class="dot dot-spin">
+            <i></i>
+            <i></i>
+            <i></i>
+            <i></i>
+          </span>
+        </div>
+        <h1><%= VUE_APP_TITLE %></h1>
+      </div>
+    </div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
