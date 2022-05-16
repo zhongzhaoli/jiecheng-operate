@@ -1,0 +1,14 @@
+@mixin textEllipsis($line){
+	display: -webkit-box;
+	-webkit-line-clamp: $line;
+	-webkit-box-orient: vertical;
+	word-break: break-word;
+	white-space: normal;
+	overflow: hidden;
+}
+
+@for $i from 1 to 5 {
+  .textEllipsis-#{$i} {
+    @include textEllipsis($i);
+  }
+}

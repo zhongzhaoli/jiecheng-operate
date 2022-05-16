@@ -4127,3 +4127,8 @@ $--background-color-base: $base-color-background;
   background-color: transparent;
   border: none;
 }
+
+// tab切换表格fixed会出现横线
+// .el-table__fixed-right::before{
+//   background-color:transparent !important ;
+// };

@@ -1,0 +1,33 @@
+// text 布局
+$text-type: (left, center, right);
+@each $type in $text-type {
+  .text-#{$type} {
+    text-align: #{$type};
+  }
+}
+
+// 文字颜色
+.text-color-red{
+  color: red;
+}
+.text-color-blue{
+  color: blue;
+}
+.text-color-green{
+  color: green;
+}
+.text-color-black{
+  color: black;
+}
+.text-color-white{
+  color: white;
+}
+.text-color-pink{
+  color: pink;
+}
+.text-color-purple{
+  color: purple;
+}
+.text-color-price{
+  color: #F56C6C;
+}

@@ -1,0 +1,169 @@
+运营后台
+
+登录
+Url: /login
+Content-Type: application/json;
+Request Method: POST
+Request Body: {
+    password: "123456" // 密码
+    username: "admin" // 账号
+}
+Response Body: {
+    code: 200,
+    data: {
+        token: "admin-token-Cd4dcff6-D3cE-2088-DCC6-2FfB20EbEEDD-1651740511247" // token
+    },
+    msg: "success"
+}
+
+用户信息
+Url: /userInfo
+Request Method: GET
+Response Body: {
+    code: 200,
+    data: {
+        avatar: "https://i.gtimg.cn/club/item/face/img/2/16022_100.gif", // 头像
+        permissions: ["read:system", "write:system", "delete:system"], // 权限
+        roles: ["Admin"], // 角色
+        username: "admin" // 用户名
+    },
+    msg: "success"
+}
+
+Vue路由
+Url: /router/getList
+Request Method: GET
+Response Body: {
+  code: 200,
+  msg: "success",
+  data: {
+    list: [
+      {
+        path: "/", // 路径
+        name: "Index", // 录有名
+        component: "Layout", // 路由组件地址
+        meta: { title: "看板", icon: "dashboard-line", breadcrumbHidden: true }, // 路由相关设置
+        children: [ // 子路有 递归的
+          {
+            path: "",
+            name: "Index-Dashboard",
+            component: "@views/index/dashboard",
+            meta: { title: "看板", noClosable: true, hidden: true },
+          },
+        ],
+      },
+      {
+        path: "member",
+        name: "Member",
+        component: "Layout",
+        meta: { title: "平台会员", icon: "user-line" },
+        children: [
+          {
+            path: "list",
+            name: "Member-List",
+            component: "@views/member/list/index",
+            meta: { title: "会员列表", icon: "list-unordered" },
+          },
+        ],
+      },
+      {
+        path: "rider",
+        name: "Rider",
+        component: "Layout",
+        meta: { title: "平台骑手", icon: "e-bike-2-line" },
+        children: [
+          {
+            path: "list",
+            name: "Rider-List",
+            component: "@views/rider/list/index",
+            meta: { title: "骑手列表", icon: "list-unordered" },
+          },
+          {
+            path: "review",
+            name: "Rider-Review",
+            component: "@views/rider/review/index",
+            meta: { title: "骑手审核", icon: "checkbox-line" },
+          },
+          {
+            path: "settlement",
+            name: "Rider-Settlement",
+            component: "@views/rider/settlement/index",
+            meta: { title: "骑手结算", icon: "currency-line" },
+          },
+        ],
+      },
+      {
+        path: "order",
+        name: "order",
+        component: "Layout",
+        meta: { title: "订单管理", icon: "bill-line" },
+        children: [
+          {
+            path: "list",
+            name: "Order-List",
+            component: "@views/order/list/index",
+            meta: { title: "订单列表", icon: "list-unordered" },
+          },
+          {
+            path: "afterSale",
+            name: "Order-AfterSale",
+            component: "@views/order/afterSale/index",
+            meta: { title: "售后订单", icon: "file-copy-2-line" },
+          },
+          {
+            path: "paymentLog",
+            name: "Order-PaymentLog",
+            component: "@views/order/paymentLog/index",
+            meta: { title: "收款流水", icon: "money-cny-box-line" },
+          },
+          {
+            path: "refundLog",
+            name: "order-RefundLog",
+            component: "@views/order/refundLog/index",
+            meta: { title: "退款流水", icon: "refund-2-line" },
+          },
+        ],
+      },
+      {
+        path: "operate",
+        name: "Operate",
+        component: "Layout",
+        meta: { title: "运营中心", icon: "dvd-line" },
+        children: [
+          {
+            path: "base",
+            name: "Operate-Base",
+            component: "@views/operate/base/index",
+            meta: { title: "基础设置", icon: "settings-6-line" },
+          },
+          {
+            path: "settlement",
+            name: "Operate-Settlement",
+            component: "@views/operate/settlement/index",
+            meta: { title: "平台结算", icon: "currency-line" },
+          },
+        ],
+      },
+      {
+        path: "system",
+        name: "System",
+        component: "Layout",
+        meta: { title: "系统管理", icon: "list-settings-line" },
+        children: [
+          {
+            path: "user",
+            name: "System-User",
+            component: "@views/system/user/index",
+            meta: { title: "用户管理", icon: "user-line" },
+          },
+          {
+            path: "role",
+            name: "System-Role",
+            component: "@views/system/role/index",
+            meta: { title: "角色管理", icon: "admin-line" },
+          },
+        ],
+      },
+    ],
+  },
+};

@@ -34,6 +34,13 @@ export const constantRoutes = [
     meta: {
       hidden: true,
     },
+  },
+  {
+    path: "/test",
+    component: () => import('@/views/test'),
+    meta: {
+      hidden: true,
+    },
   }
 ]
 

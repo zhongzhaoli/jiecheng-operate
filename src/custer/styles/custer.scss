@@ -64,9 +64,10 @@ html {
 
             > [class*='-container'] {
               min-height: $base-keep-alive-height;
-              padding: $base-padding - 10px;
+              padding: $base-padding - 5px;
               background: $base-color-white;
               transition: $base-transition;
+              border-radius: 5px;
             }
           }
         }
@@ -206,13 +207,13 @@ html {
         outline: none !important;
       }
     }
-    .el-dialog__header {
-      background-color: red !important;
+    // .el-dialog__header {
+    //   background-color: red !important;
 
-      * {
-        background-color: red !important;
-      }
-    }
+    //   * {
+    //     background-color: red !important;
+    //   }
+    // }
     /* v-modal遮罩 */
     .v-modal {
       z-index: $base-z-index;

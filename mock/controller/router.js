@@ -22,31 +22,12 @@ const list = [
         component: '@/views/index/dashboard',
         meta: {
           title: '看板',
+          icon: 'dashboard-line',
           noClosable: true,
           hidden: true
         },
       },
     ],
-  },
-  {
-    path: "member",
-    name: "Member",
-    component: 'Layout',
-    meta: {
-      title: "平台会员",
-      icon: "user-line"
-    },
-    children: [
-      {
-        path: "list",
-        name: "Member-List",
-        component: '@/views/member/list/index',
-        meta: {
-          title: "会员列表",
-          icon: "list-unordered"
-        }
-      },
-    ]
   },
   {
     path: "rider",
