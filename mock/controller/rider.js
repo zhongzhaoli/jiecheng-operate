@@ -14,7 +14,8 @@ module.exports = [
                     "status|0-1": 0,
                     "balance|10000": 0,
                     "orderNum|0-100": 0,
-                    "praise|0-5": 0,
+                    "praise|50-100": 0,
+                    "sex|1-3": 0,
                     "onTime|50-100": 0,
                     "avatar": '@image("200x200","red","#fff","avatar")',
                     'createTime': '@date @time',
@@ -29,6 +30,54 @@ module.exports = [
                     pageNumber: parseInt(pageNumber) || 1,
                     list: listMock.list
                 },
+            };
+        }
+    },
+    {
+        // 骑手详情
+        url: "/rider/detail",
+        type: "get",
+        response() {
+            const objectMock = mock(
+                {
+                    'id': "@id",
+                    'name': '@name',
+                    'phone': '13662648176',
+                    "status|0-1": 0,
+                    "sex|1-3": 0,
+                    "balance|10000": 0,
+                    "orderNum|0-100": 0,
+                    "praise|50-100": 0,
+                    "onTime|50-100": 0,
+                    "avatar": '@image("200x200","red","#fff","avatar")',
+                    'createTime': '@date @time',
+                    'birthday': '@date'
+                }
+            );
+            return {
+                code: 200,
+                msg: "success",
+                data: objectMock
+            };
+        }
+    },
+    {
+        // 骑手审核信息
+        url: "/rider/passport",
+        type: "get",
+        response() {
+            const objectMock = mock(
+                {
+                    "idImagePositive": '@image("400x200","red","#fff","idImagePositive")',
+                    "idImageBack": '@image("400x200","red","#fff","idImageBack")',
+                    "schoolImagePositive": '@image("400x200","red","#fff","schoolImagePositive")',
+                    "schoolImageBack": '@image("400x200","red","#fff","schoolImageBack")',
+                }
+            );
+            return {
+                code: 200,
+                msg: "success",
+                data: objectMock
             };
         }
     },

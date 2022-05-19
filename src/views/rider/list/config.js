@@ -1,3 +1,10 @@
+/*
+ * @Author: Custer
+ * @LastEditors: custer 525966315@qq.com
+ * @Date: 2022-05-16 15:06:40
+ * @LastEditTime: 2022-05-19 18:20:26
+ * @Description: file content
+ */
 const screenColumn = [
     {
         label: "姓名",
@@ -18,13 +25,13 @@ const screenConfig = {
 const handleColumn = [
     {
         label: "全部发站内信",
-        key: "message",
+        key: "allMessage",
         icon: "el-icon-s-promotion",
         type: "success"
     },
     {
         label: "批量发送站内信",
-        key: "message",
+        key: "partMessage",
         selection: true,
         icon: "el-icon-s-promotion",
         type: "primary"
@@ -76,7 +83,7 @@ const tableColumn = [
         label: "操作",
         fixed: "right",
         align: "center",
-        width: 250,
+        width: 280,
         key: "handle"
     }
 ];

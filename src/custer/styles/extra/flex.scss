@@ -22,6 +22,10 @@ $ai-type: (center, flex-end, flex-start, space-between);
   }
 }
 
+.flex-column{
+  flex-flow: column;
+}
+
 .flex-center{
   @extend .d-flex;
   @extend .ai-center;

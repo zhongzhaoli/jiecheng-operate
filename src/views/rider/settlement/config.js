@@ -1,7 +1,22 @@
+/*
+ * @Author: Custer
+ * @LastEditors: custer 525966315@qq.com
+ * @Date: 2022-05-16 15:07:39
+ * @LastEditTime: 2022-05-19 12:18:49
+ * @Description: file content
+ */
 const screenConfig = {
     labelWidth: "80px"
 };
 const screenColumn = [
+    {
+        label: "姓名",
+        key: "name"
+    },
+    {
+        label: "手机号",
+        key: "phone"
+    },
     {
         label: "结算状态",
         key: "status"

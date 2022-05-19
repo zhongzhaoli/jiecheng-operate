@@ -1,6 +1,6 @@
 <template>
   <div class="custer-crud">
-    <CusterScreen class="mb-10 w-100" :screenConfig="screenConfig" :screenColumn="screenColumn" @on-search="searchBackFun" v-show="showSearch">
+    <CusterScreen class="mb-10 w-100" :screenConfig="screenConfig" :screenColumn="screenColumn" @on-search="searchBackFun" v-show="showSearch" v-if="!hideScreen">
       <template v-for="item in screenColumn" v-slot:[item.key]="{ row, form }">
         <slot :name="`screen-${item.key}`" v-bind="{ row, form }"></slot>
       </template>
@@ -9,14 +9,15 @@
       :handleColumn="handleColumn"
       :tableColumn="tableColumn"
       :handleSelectionList="tableSelect_list"
-      class="w-100"
+      class="w-100 mb-10"
+      v-if="!hideHandle"
       @on-click="clickFun"
       @table-refresh="tableRefresh"
       @table-column-change="tableColumnChangeFun"
       @screen-toggle="screenToggle"
     ></CusterHandle>
     <CusterTable
-      class="mt-10 w-100"
+      class="w-100"
       :tableColumn="tableColumn_show"
       :tableData="tableData"
       :tableConfig="tableConfig"
@@ -94,6 +95,14 @@ export default {
       type: Boolean,
       default: false
     },
+    hideScreen: {
+      type: Boolean,
+      default: false
+    },
+    hideHandle: {
+      type: Boolean,
+      default: false
+    },
   },
     computed: {
     page: {
@@ -135,11 +144,14 @@ export default {
     },
     tableSelectionChange(arr){
       this.tableSelect_list = arr;
+      this.$emit('table-selection', this.tableSelect_list);
     },
     screenToggle(val){
       this.showSearch = val;
     },
-    clickFun() {},
+    clickFun(val) {
+      this.$emit("handle-click", val);
+    },
     handleSizeChange(val){
       this.$emit("limit-change", val)
     },

@@ -3982,23 +3982,6 @@ $--background-color-base: $base-color-background;
   background: $--background-color-base;
 }
 
-.el-cascader-node.is-disabled {
-  color: $--color-text-placeholder;
-}
-
-.el-avatar {
-  color: $base-color-white;
-  background: $--color-text-placeholder;
-}
-
-.el-drawer {
-  background-color: $base-color-white;
-}
-
-.el-drawer__header {
-  color: #72767b;
-}
-
 .el-drawer__close-btn {
   color: inherit;
   background-color: transparent;
@@ -4120,6 +4103,11 @@ $--background-color-base: $base-color-background;
 
 .el-drawer__header {
   color: #72767b;
+  margin-bottom: 20px;
+}
+
+.el-drawer__body{
+  padding: 20px;
 }
 
 .el-drawer__close-btn {
@@ -4132,3 +4120,7 @@ $--background-color-base: $base-color-background;
 // .el-table__fixed-right::before{
 //   background-color:transparent !important ;
 // };
+
+button.el-button{
+  vertical-align: bottom;
+}

@@ -1,8 +1,8 @@
 <!--
  * @Author: Custer
  * @Date: 2022-04-06 16:50:36
- * @LastEditors: Custer
- * @LastEditTime: 2022-04-07 17:28:29
+ * @LastEditors: custer 525966315@qq.com
+ * @LastEditTime: 2022-05-19 16:19:24
  * @Description: file content
 -->
 <template>
@@ -18,6 +18,8 @@
       :paginationLimit.sync="pageParams.pageSize"
       :paginationTotal="total"
       :tableLoading="loading"
+      :hideScreen="hideScreen"
+      :hideHandle="hideHandle"
       @on-search="searchBackFun"
       @page-change="getListFun"
       @table-refresh="getListFun"
@@ -54,7 +56,20 @@
 import config from "./config";
 import * as API_RIDER_SETTLEMENT from '@/api/rider/settlement';
 export default {
-  name: "rider-Settlement",
+  name: "Rider-Settlement",
+  props: {
+    hideScreen: {
+      type: Boolean,
+      default: false
+    },
+    hideHandle: {
+      type: Boolean,
+      default: false
+    },
+    riderId: {
+      type: String,
+    }
+  },
   data() {
     return {
       tableData: [],
@@ -66,6 +81,11 @@ export default {
       loading: false,
       ...config,
     };
+  },
+  watch: {
+    riderId(nV){
+      this.getListFun({ id: nV });
+    },
   },
   methods: {
     searchBackFun(val) {
@@ -89,8 +109,8 @@ export default {
     },
   },
   mounted() {
-    this.getListFun();
-  },
+    this.getListFun({ id: this.riderId });
+  }
 };
 </script>
 <style lang="scss" scoped>
