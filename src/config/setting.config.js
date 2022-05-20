@@ -1,8 +1,8 @@
 /*
  * @Author: Custer
  * @Date: 2021-11-03 12:15:13
- * @LastEditors: Custer
- * @LastEditTime: 2022-04-07 16:43:06
+ * @LastEditors: custer 525966315@qq.com
+ * @LastEditTime: 2022-05-20 17:44:44
  * @Description: file content
  */
 
@@ -30,5 +30,5 @@ module.exports = {
   // token存储的key
   tokenKey: "custer-admin-token",
   // token存储位置
-  storage: "cookie"
+  storage: "cookie",
 }

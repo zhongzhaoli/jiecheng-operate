@@ -1,8 +1,8 @@
 /*
  * @Author: Custer
  * @Date: 2021-11-04 12:13:44
- * @LastEditors: Custer
- * @LastEditTime: 2021-11-24 14:53:30
+ * @LastEditors: custer 525966315@qq.com
+ * @LastEditTime: 2022-05-20 16:10:32
  * @Description: file content
  */
 import { baseRoutes, constantRoutes, resetRouter } from '@/router';
@@ -24,7 +24,9 @@ const mutations = {
 const actions = {
   async setRoutes({commit}){
     let routes = [...baseRoutes];
-    const { data: { list } } = await getList();
+    // const { data: { list } } = await getList();
+    const { data } = await getList();
+    let list = JSON.parse(data);
     if(list[list.length - 1].path !== '*') list.push({ path: '*', redirect: '/404', meta: { hidden: true } })
     routes = convertRouter(list);
     // 设置菜单所需路由

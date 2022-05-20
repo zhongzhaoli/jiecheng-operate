@@ -2,7 +2,7 @@
  * @Author: Custer
  * @Date: 2022-04-06 17:08:58
  * @LastEditors: custer 525966315@qq.com
- * @LastEditTime: 2022-05-19 18:30:01
+ * @LastEditTime: 2022-05-20 17:45:54
  * @Description: file content
 -->
 <template>
@@ -14,7 +14,7 @@
       :tableColumn="tableColumn"
       :tableConfig="tableConfig"
       :tableData="tableData"
-      :paginationPage.sync="pageParams.pageNumber"
+      :paginationPage.sync="pageParams.page"
       :paginationLimit.sync="pageParams.pageSize"
       :paginationTotal="total"
       :tableLoading="loading"
@@ -30,17 +30,17 @@
       <template v-slot:table-name="{ row }">
         <div class="nameBox d-flex ai-center w-100">
           <el-avatar :size="30" fit="fill" :src="row.avatar"></el-avatar>
-          <div class="name ml-10 textEllipsis-1">{{ row.name }}</div>
+          <div class="name ml-10 textEllipsis-1">{{ row.nickname }}</div>
         </div>
       </template>
-      <template v-slot:table-balance="{ row }">
-        <span class="text-color-price">{{ row.balance | formatPrice }}</span>
+      <template v-slot:table-wallet="{ row }">
+        <span class="text-color-price">{{ row.wallet | formatPrice }}</span>
       </template>
       <template v-slot:table-status="{ row }">
         <el-switch
           v-model="row.status"
-          :active-value="1"
-          :inactive-value="0"
+          :active-value="10"
+          :inactive-value="20"
         ></el-switch>
       </template>
       <template v-slot:table-praise="{ row }"> {{ row.praise }}% </template>
@@ -224,7 +224,7 @@ export default {
       total: 0,
       pageParams: {
         pageSize: 10,
-        pageNumber: 1,
+        page: 1,
       },
       loading: false,
       editRiderDialog: false,
@@ -305,7 +305,12 @@ export default {
           ...searchParams,
         });
         this.total = data.total;
-        this.tableData = data.list;
+        this.tableData = data.data.map(item => {
+          return {
+            ...item,
+            wallet: parseFloat(item.wallet)
+          }
+        });
       } catch (err) {
       } finally {
         this.loading = false;

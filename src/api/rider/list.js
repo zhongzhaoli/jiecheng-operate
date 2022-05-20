@@ -2,14 +2,14 @@
  * @Author: Custer
  * @LastEditors: custer 525966315@qq.com
  * @Date: 2022-05-16 15:06:54
- * @LastEditTime: 2022-05-19 11:30:01
+ * @LastEditTime: 2022-05-20 17:23:24
  * @Description: file content
  */
 import request from '@/utils/request'
 
 export function getList(params) {
   return request({
-    url: '/rider/list',
+    url: '/operate/auth/deliver/list',
     method: 'get',
     params,
   })

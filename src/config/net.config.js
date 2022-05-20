@@ -1,8 +1,8 @@
 /*
  * @Author: Custer
  * @Date: 2021-11-08 14:52:20
- * @LastEditors: Custer
- * @LastEditTime: 2022-03-28 15:06:23
+ * @LastEditors: custer 525966315@qq.com
+ * @LastEditTime: 2022-05-20 15:25:58
  * @Description: file content
  */
 module.exports = {
@@ -17,5 +17,5 @@ module.exports = {
   // 状态信息的字段名称
   messageName: "msg",
   // token名称
-  tokenName: 'token',
+  tokenName: 'access_token',
 };

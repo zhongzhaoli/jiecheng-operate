@@ -1,3 +1,10 @@
+/*
+ * @Author: Custer
+ * @LastEditors: custer 525966315@qq.com
+ * @Date: 2022-05-16 17:38:20
+ * @LastEditTime: 2022-05-20 17:31:50
+ * @Description: file content
+ */
 import Vue from 'vue'
 
 const filters = {

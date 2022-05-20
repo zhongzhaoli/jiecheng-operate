@@ -2,7 +2,7 @@
  * @Author: Custer
  * @LastEditors: custer 525966315@qq.com
  * @Date: 2022-05-16 15:06:40
- * @LastEditTime: 2022-05-19 18:20:26
+ * @LastEditTime: 2022-05-20 17:35:04
  * @Description: file content
  */
 const screenColumn = [
@@ -51,7 +51,7 @@ const tableColumn = [
     {
         label: "余额",
         minWidth: 100,
-        key: "balance"
+        key: "wallet"
     },
     {
         label: "接单数",
@@ -76,7 +76,7 @@ const tableColumn = [
     },
     {
         label: "注册时间",
-        key: "createTime",
+        key: "created_at",
         minWidth: 180,
     },
     {

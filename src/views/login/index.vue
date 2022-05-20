@@ -1,8 +1,8 @@
 <!--
  * @Author: Custer
  * @Date: 2021-11-08 11:54:23
- * @LastEditors: Custer
- * @LastEditTime: 2022-04-07 22:54:14
+ * @LastEditors: custer 525966315@qq.com
+ * @LastEditTime: 2022-05-20 15:16:56
  * @Description: file content
 -->
 <template>
@@ -37,13 +37,13 @@
               </template>
             </el-input>
           </el-form-item>
-          <el-form-item prop="verificationCode">
+          <!-- <el-form-item prop="verificationCode">
             <el-input :placeholder="$t('验证码')" tabindex="3" v-model="formObj.verificationCode">
               <template #prefix>
                 <CusterIcon iconName="barcode-box-line" />
               </template>
             </el-input>
-          </el-form-item>
+          </el-form-item> -->
           <el-button class="loginBtn" :loading="loading" type="primary" @click="handleLogin">
             {{ $t('登录') }}
           </el-button>
@@ -61,7 +61,7 @@ export default {
   data() {
     return {
       formObj: {
-        username: "admin",
+        username: "test",
         password: "123456",
         verificationCode: "m4m8"
       },

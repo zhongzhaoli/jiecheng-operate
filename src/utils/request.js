@@ -1,8 +1,8 @@
 /*
  * @Author: Custer
  * @Date: 2021-11-08 14:48:59
- * @LastEditors: Custer
- * @LastEditTime: 2021-11-17 16:45:44
+ * @LastEditors: custer 525966315@qq.com
+ * @LastEditTime: 2022-05-20 15:24:41
  * @Description: file content
  */
 import axios from 'axios';
@@ -52,9 +52,9 @@ instance.interceptors.request.use(requestConfig, (error) => {
 })
 
 const responseHandle = ({ status, data, statusText }) => {
-  const code = data && data[statusName] ? data[statusName] : status;
+  const code = data && ( data[statusName] === 0 || data[statusName]) ? data[statusName] : status;
   switch(code){
-    case 200:
+    case 0:
       return data;
     case 401:
       store.dispatch('user/resetAll').then(() => {
@@ -63,7 +63,8 @@ const responseHandle = ({ status, data, statusText }) => {
       break;
   }
   const errMsg = `${data && data[messageName] ? data[messageName] : CODE_MESSAGE[code] ? CODE_MESSAGE[code] : statusText}`
-  Vue.prototype.$baseMessage(errMsg, 'error')
+  Vue.prototype.$baseMessage(errMsg, 'error');
+  return Promise.reject(data);
 }
 
 instance.interceptors.response.use(response => responseHandle(response), (error) => {
